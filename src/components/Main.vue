@@ -1,11 +1,19 @@
 <template>
-    <div>
-        <Discs v-for="(disc, index) in discs" :key=index
-        :poster='discs.poster'
-        :title='discs.title'
-        :author='discs.author'
-        :genre='discs.genre'
-        :year='discs.year' />
+<div class="bg-fluid">
+
+        <div class="container">
+
+            <div class="row">
+
+                <Discs class="custom-col" v-for="(disc, index) in discs" :key="index"
+                :poster="disc.poster"
+                :title="disc.title"
+                :author="disc.author"
+                :genre="disc.genre"
+                :year="disc.year" />
+                    
+            </div>
+        </div>
     </div>
 </template>
 
@@ -26,5 +34,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.bg-fluid {
+        background-color: rgb(30,45,59);
+        padding-top: 50px;
+        .container {
+            .row {
+                .custom-col {
+                    width: calc( 100% / 5)
+                }
+            }
+        }
+    }
 </style>
