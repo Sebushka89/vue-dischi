@@ -1,5 +1,5 @@
 <template>
-<div class="bg-fluid">
+    <div class="bg-fluid">
 
         <div class="container">
 
