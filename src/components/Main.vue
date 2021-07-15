@@ -10,7 +10,8 @@
                 :title="disc.title"
                 :author="disc.author"
                 :genre="disc.genre"
-                :year="disc.year" />
+                :year="disc.year"
+                :inputSearch="inputSearch" />
                     
             </div>
         </div>
@@ -27,7 +28,8 @@ export default {
         Discs
     },
     props: {
-        discs: Array
+        discs: Array,
+        inputSearch: String
     }
     
 }
@@ -36,7 +38,8 @@ export default {
 <style lang="scss" scoped>
 .bg-fluid {
         background-color: rgb(30,45,59);
-        padding-top: 50px;
+        padding-top: 25px;
+        height: 100vh;
         .container {
             .row {
                 .custom-col {
