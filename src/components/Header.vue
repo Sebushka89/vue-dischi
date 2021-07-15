@@ -3,7 +3,7 @@
         <header>
             <img src="../assets/spotify-logo.png" alt="">
             <div class="ricerca">
-                <input type="text" placeholder="Cerca titolo canzone" v-model="searchString" @keyup.enter="$emit('search', searchString)" />
+                <input type="text" placeholder="Cerca canzone" v-model="searchString" @keyup.enter="$emit('search', searchString)" />
                 <button class="pulsante" @click="$emit('search', searchString)">Cerca</button>
             </div>
         </header>
@@ -11,14 +11,15 @@
 </template>
 
 <script>
+
 export default {
     name: 'Header',
     data() {
         return {
-            searchString: ''
+            searchString: '',
         }
-    }
-    
+    }, 
+
 }
 </script>
 

@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <Loader v-if="discs.length == 0" />
-    <Header @search="searchSomething"/>
-    <Main :discs="filteredDiscs"  />
+    <Header @search="searchSomething" />
+    <Main :discs="filteredDiscs" />
   </div>
 </template>
 
@@ -22,26 +22,35 @@ export default {
   data(){
     return{
       discs:[],
-      inputSearch:''
+      inputSearch:[],
     }
   },
   created() {
     axios.get('https://flynn.boolean.careers/exercises/api/array/music').then((result) =>{
       this.discs = result.data.response
-      this.searchSomething('')
+      this.searchSomething('');
     })
   },
   computed:{
     filteredDiscs(){
+      if (this.inputSearch.length === 0){
+        return this.discs
+      }
+
       return this.discs.filter((element)=> {
-        return element.title.includes(this.inputSearch)
+        return element.title.toLowerCase().includes(this.inputSearch.toLowerCase()) ||
+        element.year.toLowerCase().includes(this.inputSearch.toLowerCase()) ||
+        element.author.toLowerCase().includes(this.inputSearch.toLowerCase()) ||
+        element.genre.toLowerCase().includes(this.inputSearch.toLowerCase())
       })
     }
   },
   methods: {
     searchSomething(searchString) {
-      this.inputSearch = searchString
-    }
+      this.inputSearch = searchString.trim()
+    },
+  
+     
   }
 }
 </script>

@@ -20,7 +20,7 @@
 
 <script>
 
-import Discs from './Discs.vue'
+import Discs from './Discs.vue';
 
 export default {
     name: 'Main',
